@@ -3,8 +3,8 @@
 * {
   font-family: "Eudoxus Sans", sans-serif;
   scroll-behavior: smooth;
-  scrollbar-width: thin; /* "auto" | "thin" | none */
-  scrollbar-color: var(--mm-thumb) var(--mm-track);
+    scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
 
 
@@ -110,156 +110,66 @@
   filter: blur(150px);
 }
 
-/* =========================================
-   Metaverse Madness — Neon Scrollbar
-   Save as: scrollbar.css
-   Usage: import it globally (e.g., in _app.tsx or main.css)
-   ========================================= */
-
-/* Theme tokens — tweak these to change the vibe */
 :root {
-  --mm-bg: #0a0b11;               /* page bg (for blending) */
-  --mm-track: #0f1020;            /* track/base */
-  --mm-track-grad-1: #0b0e1d;
-  --mm-track-grad-2: #151a3a;
+  --scroll-track: #0d0f1a;       /* track background */
+  --scroll-thumb: #6a5cff;       /* neon thumb base */
+  --scroll-thumb-hover: #8f85ff; /* thumb hover */
+  --scroll-thumb-active: #c2beff;/* thumb active */
+  --scroll-glow: rgba(106, 92, 255, 0.55);
+  --scroll-glow-strong: rgba(106, 92, 255, 0.85);
 
-  --mm-thumb: #6a5cff;            /* primary neon */
-  --mm-thumb-2: #00e5ff;          /* secondary neon */
-  --mm-thumb-hover: #8f85ff;
-  --mm-thumb-active: #c2beff;
-
-  --mm-glow: rgba(106, 92, 255, 0.55);
-  --mm-glow-strong: rgba(0, 229, 255, 0.55);
-
-  --mm-border: rgba(255, 255, 255, 0.06);
-  --mm-radius: 999px;             /* pill */
-  --mm-size: 12px;                /* width/height */
-  --mm-size-thin: 8px;            /* thin mode */
-
-  --mm-transition: 220ms ease;
+  --scroll-border: rgba(255, 255, 255, 0.06);
+  --scroll-radius: 999px;
+  --scroll-size: 12px;
+  --scroll-size-thin: 8px;
+  --scroll-transition: 220ms ease;
 }
-
-/* Prefer reduced motion: turn off animated transitions */
-@media (prefers-reduced-motion: reduce) {
-  :root { --mm-transition: 0ms linear; }
-}
-
 /* WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-  width: var(--mm-size);
-  height: var(--mm-size);
-  background: transparent; /* keeps it clean */
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background:
-    linear-gradient(180deg, var(--mm-track-grad-1), var(--mm-track-grad-2));
-  border: 1px solid var(--mm-border);
-  border-radius: var(--mm-radius);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.03),
-    inset 0 2px 8px rgba(0,0,0,0.35);
-}
-
-/* Thumb (the handle) */
-::-webkit-scrollbar-thumb {
-  background:
-    linear-gradient(135deg, var(--mm-thumb), var(--mm-thumb-2));
-  border-radius: var(--mm-radius);
-  border: 2px solid transparent;    /* creates inner padding ring */
-  background-clip: padding-box;      /* keep the gradient inside */
-  box-shadow:
-    0 0 8px var(--mm-glow),
-    0 0 18px var(--mm-glow-strong);
-  transition: background var(--mm-transition), box-shadow var(--mm-transition), opacity var(--mm-transition);
-}
-
-/* Hover state — brighter glow */
-::-webkit-scrollbar-thumb:hover {
-  background:
-    linear-gradient(135deg, var(--mm-thumb-hover), var(--mm-thumb-2));
-  box-shadow:
-    0 0 10px var(--mm-glow),
-    0 0 26px var(--mm-glow-strong);
-}
-
-/* Active (dragging) — lightest */
-::-webkit-scrollbar-thumb:active {
-  background:
-    linear-gradient(135deg, var(--mm-thumb-active), var(--mm-thumb-2));
-  box-shadow:
-    0 0 6px var(--mm-glow),
-    0 0 16px var(--mm-glow-strong);
-}
-
-/* Corner between horizontal/vertical scrollbars */
-::-webkit-scrollbar-corner {
-  background: var(--mm-track);
-}
-
-/* Optional: buttons (rarely visible but we’ll theme them) */
-::-webkit-scrollbar-button {
+  width: var(--scroll-size);
+  height: var(--scroll-size);
   background: transparent;
-  height: 0;
-  width: 0;
 }
 
-/* Thin mode on small screens */
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: var(--scroll-radius);
+  border: 1px solid var(--scroll-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: var(--scroll-radius);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 8px var(--scroll-glow),
+    0 0 16px var(--scroll-glow-strong);
+  transition: background var(--scroll-transition), box-shadow var(--scroll-transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+  box-shadow:
+    0 0 10px var(--scroll-glow),
+    0 0 20px var(--scroll-glow-strong);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scroll-thumb-active);
+  box-shadow:
+    0 0 6px var(--scroll-glow),
+    0 0 14px var(--scroll-glow-strong);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scroll-track);
+}
+
+/* Thin mode for mobile */
 @media (max-width: 768px) {
   ::-webkit-scrollbar {
-    width: var(--mm-size-thin);
-    height: var(--mm-size-thin);
+    width: var(--scroll-size-thin);
+    height: var(--scroll-size-thin);
   }
-}
-
-/* Dark scheme polish (if your site switches themes) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --mm-bg: #06070f;
-    --mm-track: #0b0d19;
-    --mm-track-grad-1: #0a0c18;
-    --mm-track-grad-2: #121633;
-
-    --mm-thumb: #7a6cff;
-    --mm-thumb-2: #32f0ff;
-    --mm-thumb-hover: #9b92ff;
-    --mm-thumb-active: #dad7ff;
-
-    --mm-glow: rgba(122, 108, 255, 0.55);
-    --mm-glow-strong: rgba(50, 240, 255, 0.55);
-  }
-}
-
-/* Horizontal scrollers (e.g., carousels) — keep rounded ends */
-.metaverse-scroll-x {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth; /* will be disabled by prefers-reduced-motion above */
-  scrollbar-gutter: stable both-edges;
-}
-
-/* Vertical long pages */
-.metaverse-scroll-y {
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable both-edges;
-}
-
-/* Optional: container backdrop style if your track overlays content */
-.metaverse-scroll-overlay ::-webkit-scrollbar-track {
-  background:
-    linear-gradient(180deg, rgba(11,14,29,0.75), rgba(21,26,58,0.75));
-  backdrop-filter: blur(4px);
-}
-
-/* Hide scrollbar entirely for a specific container (but keep scroll) */
-.metaverse-scroll-hidden {
-  scrollbar-width: none;       /* Firefox */
-}
-.metaverse-scroll-hidden::-webkit-scrollbar {
-  display: none;               /* WebKit */
 }
