@@ -35,7 +35,7 @@ const Feedback = () => (
         variants={fadeIn('left', "tween", 0.2, 1) as Variants}
         className="relative flex-1 flex justify-center items-center"
       >
-        <Image unoptimized={true} width={500} height={500}  src="/planet-09.png" alt="planet image feedback" className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
+        <Image unoptimized={true} priority={true} width={500} height={500}  src="/planet-09.png" alt="planet image feedback" className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
 
         <motion.div
           variants={zoomIn(0.4, 1) as Variants}
