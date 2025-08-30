@@ -1,6 +1,6 @@
 'use client';
 
-import {motion} from "framer-motion"
+import {motion, Variants} from "framer-motion"
 import { InsightCard, TypingText, TitleText} from "../components"
 import { staggerContainer } from "../utils/motion";
 import styles from "../styles/index"
@@ -8,7 +8,7 @@ import { insights } from "../constants";
 
 const Insights = () => (
   <section className={`${styles.paddings} relative z-10`}>
-    <motion.div variants={staggerContainer} initial={"hidden"} whileInView={"show"} viewport={{once: false, amount: 0.25}} className={`${styles.interWidth} mx-auto flex flex-col`}>
+    <motion.div variants={staggerContainer(0.2, 0.5)} initial={"hidden"} whileInView={"show"} viewport={{once: false, amount: 0.25}} className={`${styles.interWidth} mx-auto flex flex-col`}>
       <TypingText title={"| Insight"} textStyles={"text-center"} />
       <TitleText title={<>Insight about metaverse</>} textStyles={"text-center"} />
       <div className="flex mt-[50px] flex-col gap-[30px]">

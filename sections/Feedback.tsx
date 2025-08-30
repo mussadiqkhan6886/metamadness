@@ -1,20 +1,20 @@
 'use client';
 
-import {motion} from "framer-motion"
+import {motion, Variants} from "framer-motion"
 import styles  from "../styles";
 import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
 
 const Feedback = () => (
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div
-      variants={staggerContainer}
+      variants={staggerContainer(0.2,0.5)}
       initial="hidden"
       whileInView={"show"}
       viewport={{once: false, amount: 0.25}}
       className={`${styles.innerWidth} mx-auto flex flex-col lg:flex-row gap-6`}
     >
       <motion.div
-        variants={fadeIn('right', "tween", 0.2, 1)}
+        variants={fadeIn('right', "tween", 0.2, 1) as Variants}
         className="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border border-[#6a6a6a] relative"
       >
         <div className="feedback-gradient" />
@@ -31,13 +31,13 @@ const Feedback = () => (
         </p>
       </motion.div>
       <motion.div
-        variants={fadeIn('left', "tween", 0.2, 1)}
+        variants={fadeIn('left', "tween", 0.2, 1) as Variants}
         className="relative flex-1 flex justify-center items-center"
       >
         <img src="/planet-09.png" alt="planet image feedback" className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
 
         <motion.div
-          variants={zoomIn(0.4, 1)}
+          variants={zoomIn(0.4, 1) as Variants}
           className="lg:block hidden absolute -left-[10%] top-[3%]"
         >
           <img src="/stamp.png" alt="stamp icon feedback" className="w-36 h-36 object-contain" />

@@ -1,13 +1,13 @@
 'use client';
 
-import {motion} from "framer-motion";
+import {motion, Variants} from "framer-motion";
 import styles from "../styles"
 import {navVariants} from "../utils/motion"
 import Image from "next/image";
 
 const Navbar = () => (
   <motion.nav
-    variants={navVariants}
+    variants={navVariants as Variants}
     initial={"hidden"}
     whileInView={"show"}
     className={`${styles.xPaddings} py-6 relative`}
