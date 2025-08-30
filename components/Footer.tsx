@@ -19,7 +19,7 @@ const Footer = () => (
       <div className="flex items-center justify-between flex-wrap gap-5">
         <h4 className="font-bold md:text-[64px] text-[44px] text-white">Enter the Metaverse</h4>
         <button className="flex items-center h-fit py-4 px-6 bg-[#25618b] rounded-[32px] gap-[12px]" type="button">
-          <Image src="/headset.svg" alt="headset icon button" className="w-6 h-6 object-contain" />
+          <Image src="/headset.svg" width={24} height={24} alt="headset icon button" className="w-6 h-6 object-contain" />
           <span className="font-normal text-base text-white">ENTER METAVERSE</span>
         </button>
       </div>
@@ -32,7 +32,7 @@ const Footer = () => (
           <div className="flex gap-4">
             {socials.map(social => (
               <Link target="_blank" key={social.name} href={social.url}>
-                <Image src={social.imgPath} alt={social.name} className="w-6 h-6 object-contain cursor-pointer"  />
+                <Image width={24} height={24} src={social.imgPath} alt={social.name} className="w-6 h-6 object-contain cursor-pointer"  />
               </Link>
             ))}
           </div>

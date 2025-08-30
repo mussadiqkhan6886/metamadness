@@ -6,12 +6,13 @@ import { fadeIn, planetVariants, staggerContainer } from "../utils/motion";
 import {startingFeatures} from "../constants"
 import styles from "../styles/index"
 import StartSteps from "../components/StartSteps"
+import Image from "next/image";
 
 const GetStarted = () => (
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div variants={staggerContainer(0.2, 0.5)} initial={"hidden"} whileInView={"show"} viewport={{once: false, amount: 0.25}} className={`${styles.interWidth} mx-auto flex lg:flex-row flex-col gap-8`}>
       <motion.div variants={planetVariants('left')} className={`flex ${styles.flexCenter}`}>
-        <img src="/get-started.png" alt="get-started image" className="w-[90%] h-[90%] object-contain"  />
+        <Image width={1000} height={1000} src="/get-started.png" alt="get-started image" className="w-[90%] h-[90%] object-contain"  />
       </motion.div>
       <motion.div variants={fadeIn("left", "tween", 0.2, 1) as Variants} className="flex justify-center flex-col">
         <TypingText title={"| How Metaverse Works"} />

@@ -3,6 +3,7 @@
 import {motion, Variants} from "framer-motion"
 import styles  from "../styles";
 import { fadeIn, staggerContainer, zoomIn } from "../utils/motion";
+import Image from "next/image";
 
 const Feedback = () => (
   <section className={`${styles.paddings} relative z-10`}>
@@ -34,13 +35,13 @@ const Feedback = () => (
         variants={fadeIn('left', "tween", 0.2, 1) as Variants}
         className="relative flex-1 flex justify-center items-center"
       >
-        <img src="/planet-09.png" alt="planet image feedback" className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
+        <Image unoptimized={true} fill={true}  src="/planet-09.png" alt="planet image feedback" className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
 
         <motion.div
           variants={zoomIn(0.4, 1) as Variants}
           className="lg:block hidden absolute -left-[10%] top-[3%]"
         >
-          <img src="/stamp.png" alt="stamp icon feedback" className="w-36 h-36 object-contain" />
+          <Image width={144} height={144} src="/stamp.png" alt="stamp icon feedback" className="w-36 h-36 object-contain" />
         </motion.div>
       </motion.div>
     </motion.div>

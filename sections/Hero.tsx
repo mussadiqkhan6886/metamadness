@@ -24,7 +24,7 @@ const Hero = () => (
       >
         <div className="absolute w-full hero-gradient h-[300px] rounded-tl-[140px] z-0 -top-[30px]" />
   
-          <img src="/cover.png" alt="cover hero image" className="w-full h-[300px] sm:h-[500px] object-cover rounded-tl-[140px] z-10 relative"  />
+          <Image width={500} height={300} src="/cover.png" alt="cover hero image" className="w-full h-[300px] sm:h-[500px] object-cover rounded-tl-[140px] z-10 relative"  />
           <a href="#explore">
             <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
               <Image src={"/stamp.png"} alt="stamp" className="sm:w-[155px] sm:h-[155px] object-contain" width={100} height={100} />
